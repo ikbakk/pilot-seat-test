@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="bg-random-pattern flex min-h-screen w-full flex-col">
+    <div className="bg-custom-gradient flex min-h-screen w-full flex-col">
       <main className="flex w-full overflow-hidden">
         <Sidebar />
         <div className="w-full md:ml-14">
