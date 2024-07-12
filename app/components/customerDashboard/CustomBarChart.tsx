@@ -5,7 +5,18 @@ import {
   ChartTooltipContent,
 } from '../shadcn/ui/chart';
 
-const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
+type CustomBarChartProps = {
+  showXAxis?: boolean;
+  color?: string;
+  barsize?: number;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+const BarchartChart = ({
+  showXAxis = true,
+  barsize,
+  color,
+  ...props
+}: CustomBarChartProps) => {
   return (
     <div {...props}>
       <ChartContainer
@@ -19,19 +30,20 @@ const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
       >
         <BarChart
           data={[
-            { month: 'July', desktop: 186 },
-            { month: 'August', desktop: 305 },
-            { month: 'September', desktop: 237 },
-            { month: 'October', desktop: 73 },
-            { month: 'November', desktop: 209 },
-            { month: 'December', desktop: 214 },
+            { month: 'January', desktop: 186 },
+            { month: 'February', desktop: 305 },
+            { month: 'March', desktop: 237 },
+            { month: 'April', desktop: 73 },
+            { month: 'May', desktop: 209 },
+            { month: 'June', desktop: 214 },
           ]}
         >
           <CartesianGrid vertical={false} />
           <XAxis
+            hide={showXAxis}
             dataKey="month"
             tickLine={false}
-            tickMargin={1}
+            tickMargin={3}
             axisLine={false}
             tickFormatter={(value) => value.slice(0, 3)}
           />
@@ -39,7 +51,12 @@ const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
             cursor={false}
             content={<ChartTooltipContent hideLabel />}
           />
-          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar
+            dataKey="desktop"
+            barSize={barsize}
+            fill={color ?? 'var(--color-desktop)'}
+            radius={8}
+          />
         </BarChart>
       </ChartContainer>
     </div>

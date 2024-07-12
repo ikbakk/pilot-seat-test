@@ -20,12 +20,96 @@ import KpiCard from './KpiCard';
 
 export default function Kpi() {
   const kpiData = [
-    { id: 1, title: 'Total Revenue', value: '$125,345', percentage: 12 },
-    { id: 2, title: 'New Customers', value: '1,234', percentage: 5 },
-    { id: 3, title: 'Orders', value: '3,456', percentage: 8 },
-    { id: 4, title: 'Conversion Rate', value: '4.5%', percentage: 0.2 },
-    { id: 5, title: 'Avg. Order Value', value: '$45.67', percentage: 3 },
-    { id: 6, title: 'Returning Customers', value: '32%', percentage: 1 },
+    {
+      id: 1,
+      title: 'Total Revenue',
+      value: '$125,345',
+      percentage: 12,
+      data: [
+        { month: 'January', value: 100 },
+        { month: 'February', value: 120 },
+        { month: 'March', value: 110 },
+        { month: 'April', value: 130 },
+        { month: 'May', value: 115 },
+        { month: 'June', value: 140 },
+        { month: 'July', value: 130 },
+      ],
+    },
+    {
+      id: 2,
+      title: 'New Customers',
+      value: '1,234',
+      percentage: 5,
+      data: [
+        { month: 'January', value: 200 },
+        { month: 'February', value: 180 },
+        { month: 'March', value: 220 },
+        { month: 'April', value: 210 },
+        { month: 'May', value: 230 },
+        { month: 'June', value: 240 },
+        { month: 'July', value: 250 },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Orders',
+      value: '3,456',
+      percentage: 8,
+      data: [
+        { month: 'January', value: 300 },
+        { month: 'February', value: 350 },
+        { month: 'March', value: 330 },
+        { month: 'April', value: 360 },
+        { month: 'May', value: 340 },
+        { month: 'June', value: 380 },
+        { month: 'July', value: 370 },
+      ],
+    },
+    {
+      id: 4,
+      title: 'Conversion Rate',
+      value: '4.5%',
+      percentage: 0.2,
+      data: [
+        { month: 'January', value: 4.1 },
+        { month: 'February', value: 4.3 },
+        { month: 'March', value: 4.2 },
+        { month: 'April', value: 4.4 },
+        { month: 'May', value: 4.3 },
+        { month: 'June', value: 4.5 },
+        { month: 'July', value: 4.6 },
+      ],
+    },
+    {
+      id: 5,
+      title: 'Avg. Order Value',
+      value: '$45.67',
+      percentage: 3,
+      data: [
+        { month: 'January', value: 40 },
+        { month: 'February', value: 42 },
+        { month: 'March', value: 41 },
+        { month: 'April', value: 43 },
+        { month: 'May', value: 44 },
+        { month: 'June', value: 46 },
+        { month: 'July', value: 45 },
+      ],
+    },
+    {
+      id: 6,
+      title: 'Returning Customers',
+      value: '32%',
+      percentage: 1,
+      data: [
+        { month: 'January', value: 28 },
+        { month: 'February', value: 30 },
+        { month: 'March', value: 29 },
+        { month: 'April', value: 31 },
+        { month: 'May', value: 32 },
+        { month: 'June', value: 33 },
+        { month: 'July', value: 32 },
+      ],
+    },
   ];
 
   return (
@@ -90,12 +174,13 @@ export default function Kpi() {
           </DropdownMenu>
         </div>
       </div>
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {kpiData.map((data) => (
           <KpiCard
             key={data.title}
             title={data.title}
             value={data.value}
+            data={data.data}
             percentage={data.percentage}
           />
         ))}

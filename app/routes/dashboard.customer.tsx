@@ -1,6 +1,7 @@
 import type { MetaFunction } from '@remix-run/node';
 import CustomerDashboard from '~/components/customerDashboard/CustomerDashboard';
-import CustomerDashboardNavbar1 from '~/components/customerDashboard/Navbar1';
+import NewHeader from '~/components/customerDashboard/NewHeader';
+import Sidebar from '~/components/customerDashboard/Sidebar';
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,10 +12,13 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <CustomerDashboardNavbar1 />
-      <main className="grid flex-1 gap-6 p-4 md:p-6">
-        <CustomerDashboard />
+    <div className="flex min-h-screen w-full flex-col">
+      <main className="flex w-full overflow-hidden">
+        <Sidebar />
+        <div className="w-full md:ml-14">
+          <NewHeader />
+          <CustomerDashboard />
+        </div>
       </main>
     </div>
   );
