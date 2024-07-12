@@ -11,9 +11,9 @@ const data = [
 ];
 
 const COLORS = [
-  '#0088FE',
-  '#00C49F',
-  '#FFBB28',
+  '#FADADD',
+  '#E6E6FA',
+  '#D8BFD8',
   '#FF8042',
   '#FF6347',
   '#6a5acd',

@@ -13,7 +13,14 @@ import {
 } from '../shadcn/ui/card';
 import LinechartChart from './LineChart';
 import { Button } from '../shadcn/ui/button';
-import { ChevronDownIcon, RefreshCwIcon } from 'lucide-react';
+import {
+  ChevronDownIcon,
+  CircleDot,
+  Download,
+  RefreshCwIcon,
+  ShoppingCart,
+  Upload,
+} from 'lucide-react';
 import BarchartChart from './BarChart';
 import { Separator } from '../shadcn/ui/separator';
 import {
@@ -136,39 +143,33 @@ const CustomerDashboard = () => {
         </Card>
       </section>
 
-      <section className="w-[30%] bg-transparent outline-none">
+      <section className="w-[30%] bg-transparent outline-none 2xl:w-[25%]">
         <Card className="border-none bg-transparent">
-          <CardHeader className="flex flex-row items-start">
-            <div className="grid gap-0.5">
-              <CardTitle>Total 4 Stores</CardTitle>
-              <CardDescription className="text-foreground">
-                As of today
-              </CardDescription>
-            </div>
-            <Button size="icon" variant="outline" className="ml-auto h-6 w-6">
-              <RefreshCwIcon className="h-3.5 w-3.5" />
-              <span className="sr-only">Refresh</span>
-            </Button>
+          <CardHeader className="flex flex-row items-center justify-center">
+            <CardTitle className="text-center">Total Balance</CardTitle>
           </CardHeader>
-          <CardContent className="p-6 text-sm">
-            <div className="grid gap-3">
-              <div className="-mb-3 text-sm font-semibold text-foreground">
-                Net Revenue
+          <CardContent className="text-sm">
+            <div className="grid gap-4">
+              <div className="text-center text-4xl font-semibold">
+                $30,503,708
               </div>
-              <div className="text-4xl font-semibold">$30,503,708</div>
-              <div className="flex items-center justify-between">
-                <span className="text-foreground">Orders</span>
-                <span>3,456</span>
+
+              <div className="flex items-center justify-center gap-2">
+                <CircleDot className="h-4 w-4 text-purple-500" />
+                <p className="text-center font-semibold">12.81%</p>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-foreground">Customers</span>
-                <span>1,234 people</span>
+
+              <div className="flex w-full items-center justify-around">
+                <Button className="rounded-lg bg-black text-white hover:bg-black/80">
+                  Send <Upload className="ml-2 h-4 w-4" />
+                </Button>
+                <Button className="rounded-lg bg-black text-white hover:bg-black/80">
+                  Receive <Download className="ml-2 h-4 w-4" />
+                </Button>
               </div>
-              <Separator className="my-2" />
+
               <div className="flex items-center justify-between font-semibold">
-                <span className="text-foreground">
-                  Quick access to your store
-                </span>
+                <span className="text-foreground">Quick transfer</span>
               </div>
               <div className="flex w-full items-center justify-between">
                 <div className="rounded-full bg-purple-800 p-2 font-semibold text-white hover:cursor-pointer">
@@ -186,14 +187,51 @@ const CustomerDashboard = () => {
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex flex-row items-center border-t px-6 py-3">
-            <Button
-              size="sm"
-              variant="default"
-              className="w-full bg-purple-500 text-white hover:bg-purple-600"
-            >
-              See All Stores
-            </Button>
+          <CardFooter className="flex flex-col items-center gap-4 border-t px-6 py-3">
+            <div className="flex w-full justify-between">
+              <div className="font border-spacing-4 border-b-2 border-purple-500 font-semibold text-purple-500">
+                Marketplace
+              </div>
+              <div>History</div>
+              <div>Payment</div>
+            </div>
+            <div className="flex w-full flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShoppingCart />
+                  <div className="font-semibold">Online Store 1</div>
+                </div>
+                <Button>Connected</Button>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShoppingCart />
+                  <div className="font-semibold">Online Store 2</div>
+                </div>
+                <Button>Connected</Button>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShoppingCart />
+                  <div className="font-semibold">Online Store 3</div>
+                </div>
+                <Button className="bg-purple-500 text-white">Connect</Button>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShoppingCart />
+                  <div className="font-semibold">Online Store 4</div>
+                </div>
+                <Button className="bg-purple-500 text-white">Connect</Button>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ShoppingCart />
+                  <div className="font-semibold">Online Store 5</div>
+                </div>
+                <Button className="bg-purple-500 text-white">Connect</Button>
+              </div>
+            </div>
           </CardFooter>
         </Card>
       </section>
