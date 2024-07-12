@@ -33,8 +33,9 @@ export const loader = async () => {
 
 const CustomerDashboard = () => {
   return (
-    <main className="flex min-h-screen w-full bg-gray-100 p-4">
-      <section className="grid w-full grid-cols-1 gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+    <main className="flex min-h-screen w-full bg-white/80 p-4 backdrop-blur-3xl">
+      <section className="grid w-full grid-cols-1 gap-4 sm:px-6 sm:py-0 md:gap-8">
+        <h1 className="mt-4 text-2xl font-semibold">Welcome Back, User!</h1>
         <div className="flex h-fit w-full gap-4">
           <Card className="relative w-full">
             <div className="absolute top-4 h-10 w-1 rounded-r-md bg-red-500" />
@@ -135,12 +136,14 @@ const CustomerDashboard = () => {
         </Card>
       </section>
 
-      <section className="w-[30%]">
-        <Card className="backdrop-blur-md">
-          <CardHeader className="flex flex-row items-start bg-muted/50">
+      <section className="w-[30%] bg-transparent outline-none">
+        <Card className="border-none bg-transparent">
+          <CardHeader className="flex flex-row items-start">
             <div className="grid gap-0.5">
               <CardTitle>Total 4 Stores</CardTitle>
-              <CardDescription>As of today</CardDescription>
+              <CardDescription className="text-foreground">
+                As of today
+              </CardDescription>
             </div>
             <Button size="icon" variant="outline" className="ml-auto h-6 w-6">
               <RefreshCwIcon className="h-3.5 w-3.5" />
@@ -154,11 +157,11 @@ const CustomerDashboard = () => {
               </div>
               <div className="text-4xl font-semibold">$30,503,708</div>
               <div className="flex items-center justify-between">
-                <span className="text-muted-foreground">Orders</span>
+                <span className="text-foreground">Orders</span>
                 <span>3,456</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-muted-foreground">Customers</span>
+                <span className="text-foreground">Customers</span>
                 <span>1,234 people</span>
               </div>
               <Separator className="my-2" />
@@ -168,23 +171,27 @@ const CustomerDashboard = () => {
                 </span>
               </div>
               <div className="flex w-full items-center justify-between">
-                <div className="rounded-full bg-muted-foreground p-2 font-semibold hover:cursor-pointer hover:bg-foreground hover:text-white">
+                <div className="rounded-full bg-purple-800 p-2 font-semibold text-white hover:cursor-pointer">
                   SB
                 </div>
-                <div className="rounded-full bg-muted-foreground p-2 font-semibold hover:cursor-pointer hover:bg-foreground hover:text-white">
+                <div className="rounded-full bg-purple-800 p-2 font-semibold text-white hover:cursor-pointer">
                   AB
                 </div>
-                <div className="rounded-full bg-muted-foreground p-2 font-semibold hover:cursor-pointer hover:bg-foreground hover:text-white">
+                <div className="rounded-full bg-purple-800 p-2 font-semibold text-white hover:cursor-pointer">
                   ER
                 </div>
-                <div className="rounded-full bg-muted-foreground p-2 font-semibold hover:cursor-pointer hover:bg-foreground hover:text-white">
+                <div className="rounded-full bg-purple-800 p-2 font-semibold text-white hover:cursor-pointer">
                   DF
                 </div>
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
-            <Button size="sm" variant="default" className="w-full">
+          <CardFooter className="flex flex-row items-center border-t px-6 py-3">
+            <Button
+              size="sm"
+              variant="default"
+              className="w-full bg-purple-500 text-white hover:bg-purple-600"
+            >
               See All Stores
             </Button>
           </CardFooter>

@@ -51,7 +51,7 @@ const LinechartChart = (
           <Line
             dataKey="desktop"
             type="natural"
-            stroke="var(--color-desktop)"
+            stroke="#9C27B0"
             strokeWidth={2}
             dot={false}
           />

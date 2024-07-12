@@ -22,9 +22,9 @@ export default function Sidebar() {
         <TooltipProvider>
           <Link
             to="#"
-            className="group flex h-4 w-4 shrink-0 items-center justify-center gap-2 rounded-lg bg-primary text-lg font-semibold text-primary-foreground md:h-10 md:w-10 md:text-base"
+            className="group flex h-4 w-4 shrink-0 items-center justify-center gap-2 rounded-lg bg-purple-500 text-lg font-semibold text-primary-foreground md:h-10 md:w-10 md:text-base"
           >
-            <Package2Icon className="h-4 w-4 transition-all group-hover:scale-110" />
+            <Package2Icon className="h-4 w-4 font-bold text-yellow-300 transition-all group-hover:scale-110" />
             <span className="sr-only">Acme Inc</span>
           </Link>
           <Tooltip>
@@ -33,8 +33,8 @@ export default function Sidebar() {
                 to="#"
                 className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
-                <div className="absolute right-0 h-8 w-1 translate-x-4 transform rounded-r-lg bg-primary" />
-                <HomeIcon className="h-5 w-5" />
+                <div className="absolute right-0 h-8 w-1 translate-x-4 transform rounded-r-lg bg-purple-500" />
+                <HomeIcon fill="#9C27B0" className="h-5 w-5 text-primary" />
                 <span className="sr-only">Dashboard</span>
               </Link>
             </TooltipTrigger>

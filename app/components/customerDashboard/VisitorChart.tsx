@@ -118,11 +118,11 @@ const chartConfig = {
   },
   desktop: {
     label: 'Desktop',
-    color: 'hsl(var(--chart-1))',
+    color: '#9C27B0',
   },
   mobile: {
     label: 'Mobile',
-    color: 'hsl(var(--chart-2))',
+    color: '#9C27B0A0',
   },
 } satisfies ChartConfig;
 
@@ -147,15 +147,15 @@ const VisitorChart = () => {
             <Button
               key={chart}
               data-active={activeChart === chart}
-              className="flex h-fit flex-col"
+              className="flex h-fit flex-col bg-muted bg-purple-500 text-white hover:bg-purple-400 active:bg-purple-500"
               variant={activeChart === chart ? 'default' : 'outline'}
               // className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
               onClick={() => setActiveChart(chart)}
             >
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-white">
                 {chartConfig[chart].label}
               </span>
-              <span className="text-lg font-bold leading-none sm:text-3xl">
+              <span className="text-lg font-bold leading-none text-white sm:text-3xl">
                 {total[key as keyof typeof total].toLocaleString()}
               </span>
             </Button>

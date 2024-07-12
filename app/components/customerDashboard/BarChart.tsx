@@ -39,7 +39,17 @@ const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
             cursor={false}
             content={<ChartTooltipContent hideLabel />}
           />
-          <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+          <Bar
+            dataKey="desktop"
+            radius={4}
+            className="transition duration-300"
+            fill="rgba(156, 39, 176, 0.5)"
+            style={{ transition: 'fill 0.3s ease' }}
+            onMouseEnter={(e) => (e.target.style.fill = '#9C27B0')}
+            onMouseLeave={(e) =>
+              (e.target.style.fill = 'rgba(156, 39, 176, 0.5)')
+            }
+          />
         </BarChart>
       </ChartContainer>
     </div>
