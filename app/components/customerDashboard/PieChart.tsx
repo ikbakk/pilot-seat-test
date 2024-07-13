@@ -1,78 +1,98 @@
-import React from 'react';
-import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Tooltip } from 'recharts';
+import { ChartContainer } from '../shadcn/ui/chart';
+import { CardContent, CardFooter } from '../shadcn/ui/card';
+import { formatCurrency } from '~/lib/currencyFormatter';
 
 const data = [
-  { name: 'Delivered GMV', value: 6000000 },
-  { name: 'Cost of Goods', value: 1800000 },
-  { name: 'Cost of Services', value: 485000 },
-  { name: 'Cost of Marketing', value: 1250000 },
-  { name: 'Net Profit', value: 2465000 },
-  { name: 'Inventory Value', value: 1200000 },
+  {
+    name: 'Delivered GMV',
+    value: 600000,
+    fill: '#6A1B9A',
+  },
+  {
+    name: 'Cost of Goods',
+    value: 180000,
+    fill: '#7B1FA2',
+  },
+  {
+    name: 'Cost of Services',
+    value: 485000,
+    fill: '#8E24AA',
+  },
+  {
+    name: 'Cost of Marketing',
+    value: 105000,
+    fill: '#9C27B0',
+  },
+  {
+    name: 'Net Profit',
+    value: 171840,
+    fill: '#AB47BC',
+  },
+  {
+    name: 'Inventory Value',
+    value: 120000,
+    fill: '#BA68C8',
+  },
 ];
 
-const COLORS = [
-  '#FADADD',
-  '#E6E6FA',
-  '#D8BFD8',
-  '#FF8042',
-  '#FF6347',
-  '#6a5acd',
-];
-
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-}) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="#2f2f2f"
-      textAnchor={x > cx ? 'start' : 'end'}
-      dominantBaseline="central"
-    >
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
+const chartConfig = {
+  deliveredGMV: {
+    label: 'Delivered GMV',
+    color: '#6A1B9A',
+  },
+  costOfGoods: {
+    label: 'Cost of Goods',
+    color: '#7B1FA2',
+  },
+  costOfServices: {
+    label: 'Cost of Services',
+    color: '#8E24AA',
+  },
+  costOfMarketing: {
+    label: 'Cost of Marketing',
+    color: '#9C27B0',
+  },
+  netProfit: {
+    label: 'Net Profit',
+    color: '#AB47BC',
+  },
+  inventoryValue: {
+    label: 'Inventory Value',
+    color: '#BA68C8',
+  },
 };
 
-const PieChartComponent = (props: React.HTMLAttributes<HTMLDivElement>) => {
+const PieChartComponent = () => {
   return (
-    <div {...props}>
-      <PieChart width={800} height={400}>
-        <Tooltip />
-        <Legend
-          margin={{ left: 300 }}
-          layout="vertical"
-          verticalAlign="middle"
-          align="right"
-        />
-        <Pie
-          data={data}
-          cx={200}
-          cy={200}
-          innerRadius={0}
-          outerRadius={150}
-          fill="#8884d8"
-          paddingAngle={2}
-          dataKey="value"
-          labelLine={false}
-          label={renderCustomizedLabel}
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+    <div className="flex flex-col gap-2 lg:flex">
+      <CardContent className="flex flex-1 flex-col pb-0 xl:flex-row xl:items-center xl:justify-around">
+        <ChartContainer className="min-h-[250px] pb-0" config={chartConfig}>
+          <PieChart>
+            <Tooltip />
+            <Pie data={data} dataKey="value" label nameKey="name" />
+          </PieChart>
+        </ChartContainer>
+        <ul className="flex flex-col gap-2">
+          {data.map((item) => (
+            <li className="flex justify-between" key={item.name}>
+              <div className="flex items-center gap-2">
+                <div
+                  className="inline-block h-2 w-2 rounded-full"
+                  style={{ backgroundColor: item.fill }}
+                />
+                <span className="font-semibold">{item.name}</span>
+              </div>
+              <span className="ml-4">{formatCurrency(item.value)}</span>
+            </li>
           ))}
-        </Pie>
-      </PieChart>
+        </ul>
+      </CardContent>
+      <CardFooter className="flex-col gap-2 text-sm">
+        <div className="text-center leading-none text-muted-foreground">
+          Showing total revenue overview for the last 6 months
+        </div>
+      </CardFooter>
     </div>
   );
 };
