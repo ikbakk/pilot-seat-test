@@ -66,7 +66,11 @@ const chartConfig = {
 const PieChartComponent = () => {
   return (
     <div className="flex flex-col gap-2 lg:flex">
+<<<<<<< HEAD
       <CardContent className="flex flex-1 flex-col pb-0 xl:flex-row xl:items-center xl:justify-around">
+=======
+      <CardContent className="flex flex-1 flex-col pb-0 lg:flex-row lg:items-center lg:justify-around">
+>>>>>>> 44cbb250d06b67a88c943fb8918807ecae1afc53
         <ChartContainer className="min-h-[250px] pb-0" config={chartConfig}>
           <PieChart>
             <Tooltip />
