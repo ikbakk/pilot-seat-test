@@ -15,6 +15,7 @@ const LinechartChart = (
   return (
     <div {...props}>
       <ChartContainer
+        className="min-h-[100px]"
         config={{
           desktop: {
             label: 'Desktop',

@@ -15,7 +15,7 @@ const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
             color: 'hsl(var(--chart-1))',
           },
         }}
-        className="min-h-[300px]"
+        className="min-h-[100px]"
       >
         <BarChart
           data={[
@@ -31,7 +31,7 @@ const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
           <XAxis
             dataKey="month"
             tickLine={false}
-            tickMargin={1}
+            tickMargin={0}
             axisLine={false}
             tickFormatter={(value) => value.slice(0, 3)}
           />
@@ -40,6 +40,7 @@ const BarchartChart = (props: React.HTMLAttributes<HTMLDivElement>) => {
             content={<ChartTooltipContent hideLabel />}
           />
           <Bar
+            display="flex"
             dataKey="desktop"
             radius={4}
             className="transition duration-300"

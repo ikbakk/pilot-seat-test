@@ -1,13 +1,7 @@
 import * as React from 'react';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '../shadcn/ui/card';
+import { CardContent } from '../shadcn/ui/card';
 import {
   ChartConfig,
   ChartContainer,
